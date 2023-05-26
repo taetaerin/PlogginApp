@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from './src/screens/Home';
@@ -11,6 +11,7 @@ import Participant from './src/screens/Participant';
 import Ionic from 'react-native-vector-icons/Ionicons';
 import SignUp from './src/screens/SignUp';
 import SignIn from './src/screens/SignIn.js';
+import SplashScreen from 'react-native-splash-screen';
 
 const getIsSignedIn = () => {
   // custom logic
@@ -19,6 +20,13 @@ const getIsSignedIn = () => {
 
 
 const App = () => {
+  useEffect(() => {
+    //setTimeout을 이용하면 몇초간 스플래시 스크린을 보여주고 싶은지 설정할 수 있다.
+    setTimeout(() => {
+      SplashScreen.hide();
+    }, 1000);
+  }, []);
+
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
 
