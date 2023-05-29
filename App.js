@@ -78,7 +78,7 @@ const App = () => {
     <SafeAreaView style={styles.root}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown:false}}>
-          {isSignedIn ? (
+          {/* {isSignedIn ? (
               <>
                 <Stack.Screen name="Home" component={Home} />
               </>
@@ -88,7 +88,8 @@ const App = () => {
                 <Stack.Screen name="SignUp" component={SignUp} />
               </>
             )}
-            {/* <Stack.Screen name="Main" component={BottomTabScreens} /> */}
+            <Stack.Screen name="Main" component={BottomTabScreens} /> */}
+            <Stack.Screen name="Main" component={BottomTabScreens} />
   
         </Stack.Navigator>
       </NavigationContainer>  

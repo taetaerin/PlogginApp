@@ -2,14 +2,19 @@ import { StyleSheet, Text, TextInput, View } from 'react-native';
 import React from 'react';
 import Ionic from 'react-native-vector-icons/Ionicons';
 
-const CustomerInput = ({name, placeholder}) => {
+const CustomerInput = ({name, placeholder, value, setValue, secureTextEntry}) => {
   return (
     <View style={[styles.inputContainer]}>
         <View style={styles.inputContent}>
             <Ionic style={styles.inputIcon} name={name} />
             <TextInput
-            style={styles.inputText}
-            placeholder={placeholder} />
+              value={value}
+              onChangeText={setValue}
+              style={styles.inputText}
+              placeholder={placeholder} 
+              secureTextEntry={secureTextEntry}
+              autoCapitalize = 'none'
+            />
         </View>
     </View> 
   );
