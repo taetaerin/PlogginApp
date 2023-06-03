@@ -2,6 +2,7 @@ import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity, FlatList, 
 import React from 'react';
 import { useTheme } from 'styled-components';
 import ImplementCard from '../components/HomeCard';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 
@@ -39,7 +40,7 @@ const Home = () => {
   // const theme = useTheme();
 
   return (
-    <View>
+    <SafeAreaView style={{backgroundColor: 'white', flex: 1}}>
       <View 
         style={{
           width: '100%', 
@@ -67,8 +68,19 @@ const Home = () => {
             )
           })}
         </View>
+
+        <Text style={styles.subTitle}>환경이야기 보따리</Text>
+        <View style={styles.container}>
+          {implementData.map((data, index) => {
+            return(
+              <TouchableOpacity>
+                <ImplementCard title={data.title} image={data.image}/>
+              </TouchableOpacity>
+            )
+          })}
+        </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   )
 }
 
@@ -95,6 +107,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     // backgroundColor: 'yellow',
     paddingHorizontal: 15,
+    marginBottom: 10,
   },
 });
 

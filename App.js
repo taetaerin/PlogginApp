@@ -40,9 +40,9 @@ const App = () => {
           tabBarHideOnKeyboard: true,
           tabBarShowLabel: false,
           headerShown: false,
-          tabBarStyle: {
-            height: 70,
-          },
+          // tabBarStyle: {
+          //   height: 70,
+          // },
           tabBarIcon: ({focused, size, color}) => {
             let iconName;
             if(route.name == 'Home') {
