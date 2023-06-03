@@ -12,6 +12,7 @@ import Ionic from 'react-native-vector-icons/Ionicons';
 import SignUp from './src/screens/SignUp';
 import SignIn from './src/screens/SignIn.js';
 import SplashScreen from 'react-native-splash-screen';
+import Content from './src/screens/Content';
 
 const getIsSignedIn = () => {
   // custom logic
@@ -78,7 +79,7 @@ const App = () => {
     <SafeAreaView style={styles.root}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown:false}}>
-          {/* {isSignedIn ? (
+          {isSignedIn ? (
               <>
                 <Stack.Screen name="Home" component={Home} />
               </>
@@ -88,8 +89,9 @@ const App = () => {
                 <Stack.Screen name="SignUp" component={SignUp} />
               </>
             )}
-            <Stack.Screen name="Main" component={BottomTabScreens} /> */}
             <Stack.Screen name="Main" component={BottomTabScreens} />
+            {/* <Stack.Screen name="Main" component={BottomTabScreens} /> */}
+            <Stack.Screen name="Content" component={Content} />
   
         </Stack.Navigator>
       </NavigationContainer>  

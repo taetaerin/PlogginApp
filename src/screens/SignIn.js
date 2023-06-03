@@ -32,7 +32,7 @@ const SignIn = () => {
               value={userid} 
               setValue={setUserId} 
               autoCapitalize = 'none'
-              placeholder='비밀번호' name='person-outline'
+              placeholder='아이디' name='person-outline'
           />
 
           {/* 비밀번호 컴포넌트 */}
