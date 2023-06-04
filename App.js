@@ -76,10 +76,10 @@ const App = () => {
 
 //stack 네비게이션  
   return (
-    <SafeAreaView style={styles.root}>
+
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown:false}}>
-          {isSignedIn ? (
+          {/* {isSignedIn ? (
               <>
                 <Stack.Screen name="Home" component={Home} />
               </>
@@ -89,20 +89,18 @@ const App = () => {
                 <Stack.Screen name="SignUp" component={SignUp} />
               </>
             )}
-            <Stack.Screen name="Main" component={BottomTabScreens} />
+            <Stack.Screen name="Main" component={BottomTabScreens} /> */}
             {/* <Stack.Screen name="Main" component={BottomTabScreens} /> */}
-            <Stack.Screen name="Content" component={Content} />
-  
+            {/* <Stack.Screen name="Content" component={Content} /> */}
+            <Stack.Screen name="SingUp" component={SignUp} />
+            {/* <Stack.Screen name="SignIn" component={SignIn} /> */}
         </Stack.Navigator>
       </NavigationContainer>  
-    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  }
+
 })
 
 export default App;

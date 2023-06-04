@@ -5,7 +5,6 @@ const Logo = () => {
   let LogoImg = require('../../../assets/images/Logo.png');
   return (
     <View style={styles.logoContainer}>
-
         <View>
             <Image style={styles.logoImg} source={LogoImg} resizeMode='contain' />
         </View>
@@ -23,7 +22,9 @@ const styles = StyleSheet.create({
     logoContainer: {
         alignItems: 'center',
         justifyContent:'center',
-        marginBottom: '50%',
+        marginTop: '30%',
+        marginBottom: '40%'
+// ,        backgroundColor: 'red'
       },
       logoImg : {
         height: 60,

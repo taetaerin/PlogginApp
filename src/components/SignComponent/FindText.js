@@ -1,14 +1,16 @@
 import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 const FindText = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.findContent}>
         <Text style={styles.findText}>아이디찾기</Text>
         <View style={styles.line}></View>
         <Text style={styles.findText}>비밀번호 찾기</Text>
         <Text style={styles.line}></Text>
-        <Text style={styles.findText}>회원가입</Text>
+        <Text style={styles.findText} onPress={() => navigation.navigate('SignUp')}>회원가입</Text>
     </View>  
   );
 };
