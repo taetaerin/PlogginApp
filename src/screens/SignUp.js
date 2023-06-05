@@ -6,12 +6,15 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Ionic from 'react-native-vector-icons/Ionicons';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { CheckBox } from '@rneui/themed';
+import { useNavigation } from '@react-navigation/native';
 
 
 
-const SignUp = () => {
+
+const SignUp = ({navigation}) => {
   const [checked, setChecked] = useState(true);
   // const toggleCheckbox = () => setChecked(!checked);
+  // const navigation = useNavigation();
 
 
   return (
@@ -27,7 +30,7 @@ const SignUp = () => {
             paddingHorizontal: 18,
             justifyContent:'center'}}
             >
-            <TouchableOpacity>
+            <TouchableOpacity  onPress={() => navigation.goBack()}>
                 <Ionic name="chevron-back-sharp" style={{fontSize:24}} />
             </TouchableOpacity>
           </View>

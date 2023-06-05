@@ -3,17 +3,16 @@ import React, { useState } from 'react';
 import Logo from '../components/SignComponent/Logo';
 import { useNavigation } from '@react-navigation/native';
 import CustomerInput from '../components/SignComponent/CustomerInput';
-import FindText from '../components/SignComponent/FindText';
 
 
 
-const SignIn = () => {
+const SignIn = ({ navigation }) => {
 
   const [userid, setUserId] = useState('');
   const [password, setPassword] = useState('');
   console.log('userid', userid);
   console.log('password', password);
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
 
 
   return (
@@ -51,7 +50,13 @@ const SignIn = () => {
               <Text style={styles.btnText}>로그인</Text>
           </Pressable>
 
-          <FindText />
+          <View style={styles.findContent}>
+              <Text style={styles.findText}>아이디찾기</Text>
+              <View style={styles.line}></View>
+              <Text style={styles.findText}>비밀번호 찾기</Text>
+              <Text style={styles.line}></Text>
+              <Text style={styles.findText} onPress={() => navigation.navigate('SignUp')}>회원가입</Text>
+          </View>  
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
@@ -117,6 +122,38 @@ const SignIn = () => {
       fontSize: 16,
       fontWeight: 'bold',
     },
+    findContainer: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      marginTop: 8,
+      backgroundColor: 'orange',
+      padding: 1,
+      width: '100%',
+    },
+
+  findContent : {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center', 
+      marginTop: 12,
+  },
+
+  findText: {
+      color: '#f424242',
+      fontSize: 14,
+      marginRight: 16,
+      opacity: 0.75,
+  },
+
+  line: {
+      backgroundColor: 'black',
+      marginRight: 16,
+      width: 1,
+      height: 14,
+      opacity: 0.3,
+  },
   });
 
 export default SignIn;

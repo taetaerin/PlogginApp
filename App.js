@@ -79,7 +79,7 @@ const App = () => {
 
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown:false}}>
-          {/* {isSignedIn ? (
+          {isSignedIn ? (
               <>
                 <Stack.Screen name="Home" component={Home} />
               </>
@@ -89,11 +89,10 @@ const App = () => {
                 <Stack.Screen name="SignUp" component={SignUp} />
               </>
             )}
-            <Stack.Screen name="Main" component={BottomTabScreens} /> */}
-            {/* <Stack.Screen name="Main" component={BottomTabScreens} /> */}
-            {/* <Stack.Screen name="Content" component={Content} /> */}
-            <Stack.Screen name="SingUp" component={SignUp} />
-            {/* <Stack.Screen name="SignIn" component={SignIn} /> */}
+            <Stack.Screen name="Main" component={BottomTabScreens} />
+            
+            <Stack.Screen name="Content" component={Content} /> 
+
         </Stack.Navigator>
       </NavigationContainer>  
   );
