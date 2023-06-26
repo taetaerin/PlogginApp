@@ -6,6 +6,7 @@ const Map = () => {
     <View>
       <Text>Map</Text>
       <Text>wlwlwlwlwl</Text>
+      <Text>dldldldl</Text>
     </View>
   )
 }
