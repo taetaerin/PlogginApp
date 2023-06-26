@@ -5,6 +5,7 @@ const Map = () => {
   return (
     <View>
       <Text>Map</Text>
+      <Text>wlwlwlwlwl</Text>
     </View>
   )
 }
