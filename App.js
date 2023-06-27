@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from './src/screens/Home';
 import Post from './src/screens/Post';
 import Profile from './src/screens/Profile';
+import EditProfile from './src/screens/EditProfile';
 import { NavigationContainer } from '@react-navigation/native';
 import Map from './src/screens/Map';
 import Participant from './src/screens/Participant';
@@ -92,6 +93,11 @@ const App = () => {
             <Stack.Screen name="Main" component={BottomTabScreens} />
             
             <Stack.Screen name="Content" component={Content} /> 
+
+            
+            <Stack.Screen name="EditProfile" component={EditProfile} />
+
+
 
         </Stack.Navigator>
       </NavigationContainer>  
