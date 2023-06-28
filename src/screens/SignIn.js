@@ -1,28 +1,22 @@
 import { View, Text,  StyleSheet, Pressable, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import React, { useState } from 'react';
 import Logo from '../components/SignComponent/Logo';
-import { useNavigation } from '@react-navigation/native';
 import CustomerInput from '../components/SignComponent/CustomerInput';
-
 
 
 const SignIn = ({ navigation }) => {
 
   const [userid, setUserId] = useState('');
   const [password, setPassword] = useState('');
+
   console.log('userid', userid);
   console.log('password', password);
-  // const navigation = useNavigation();
-
 
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={styles.container}>
       
-      {/* <Logo /> */}
-
-
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
           
@@ -31,10 +25,10 @@ const SignIn = ({ navigation }) => {
 
           {/* 로그인 컴포넌트 */}
           <CustomerInput 
-              value={userid} 
-              setValue={setUserId} 
+              value = {userid}
+              setValue = {setUserId}
               autoCapitalize = 'none'
-              placeholder='아이디' name='person-outline'
+              placeholder = '아이디' name = 'person-outline'
           />
 
           {/* 비밀번호 컴포넌트 */}
@@ -46,17 +40,19 @@ const SignIn = ({ navigation }) => {
           />
 
           {/* 로그인 버튼  */}
-          <Pressable onPress={() => navigation.replace('Main')} style={[styles.signBtn]}>
+          <Pressable onPress={() => navigation.replace('Main')} style={styles.signInBtn}>
               <Text style={styles.btnText}>로그인</Text>
           </Pressable>
 
+          {/* 아이디 비밀번호 회원가입  */}
           <View style={styles.findContent}>
               <Text style={styles.findText}>아이디찾기</Text>
               <View style={styles.line}></View>
               <Text style={styles.findText}>비밀번호 찾기</Text>
               <Text style={styles.line}></Text>
               <Text style={styles.findText} onPress={() => navigation.navigate('SignUp')}>회원가입</Text>
-          </View>  
+          </View>
+
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
@@ -68,6 +64,14 @@ const SignIn = ({ navigation }) => {
       flex: 1,
       backgroundColor: '#FBFBFB',
     },
+
+    inner: {
+      padding: 24,
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+
     inputContainer: {
       width: '100%',
       height: 47,
@@ -87,7 +91,7 @@ const SignIn = ({ navigation }) => {
 
     inputIcon: {
       fontSize: 16, 
-      color: '#828282', 
+      color: '#828282',
       marginRight: 16,
     },
 
@@ -95,14 +99,8 @@ const SignIn = ({ navigation }) => {
       fontSize: 14,
       width: '70%',
     },
-    inner: {
-      padding: 24,
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
 
-    signBtn: {
+    signInBtn: {
       backgroundColor: '#0BE060',
       alignItems: 'center',
       borderWidth: 0,
@@ -116,12 +114,13 @@ const SignIn = ({ navigation }) => {
       borderColor: 'rgba(0, 0, 0, 0.2)',
       paddingHorizontal: 16,
     },
-    
+
     btnText: {
       color: 'white',
       fontSize: 16,
       fontWeight: 'bold',
     },
+
     findContainer: {
       display: 'flex',
       flexDirection: 'row',

@@ -1,12 +1,15 @@
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { StyleSheet } from 'react-native';
 import React, { useEffect } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
 import Home from './src/screens/Home';
 import Post from './src/screens/Post';
 import Profile from './src/screens/Profile';
+
 import EditProfile from './src/screens/EditProfile';
-import { NavigationContainer } from '@react-navigation/native';
+
+
 import Map from './src/screens/Map';
 import Participant from './src/screens/Participant';
 import Ionic from 'react-native-vector-icons/Ionicons';
@@ -22,8 +25,9 @@ const getIsSignedIn = () => {
 
 
 const App = () => {
+
   useEffect(() => {
-    //setTimeout을 이용하면 몇초간 스플래시 스크린을 보여주고 싶은지 설정할 수 있다.
+    //setTimeout을 이용하면 1초간 스플래시 스크린을 보여줌
     setTimeout(() => {
       SplashScreen.hide();
     }, 1000);
@@ -34,7 +38,7 @@ const App = () => {
 
   const isSignedIn = getIsSignedIn();
 
-  //하단바 
+  //하단바 생성
   const BottomTabScreens = () => {
     return (
       <Tab.Navigator 
@@ -42,10 +46,8 @@ const App = () => {
           tabBarHideOnKeyboard: true,
           tabBarShowLabel: false,
           headerShown: false,
-          // tabBarStyle: {
-          //   height: 70,
-          // },
-          tabBarIcon: ({focused, size, color}) => {
+        
+          tabBarIcon: ({ focused, size, color }) => {
             let iconName;
             if(route.name == 'Home') {
               iconName = focused ? 'home-sharp' : 'home-outline';
@@ -55,12 +57,11 @@ const App = () => {
             } else if(route.name == 'Participant') {
               iconName = focused ?  'ios-megaphone-sharp' : 'ios-megaphone-outline';
             } else if(route.name == 'Map') {
-              // iconName = focused ? 'ios-walk-sharp' : 'ios-walk-outline';
               iconName = focused ?  'ios-location-sharp' : 'ios-location-outline';
             } else if(route.name == 'Profile') {
               iconName = focused ? 'ios-person-sharp' : 'ios-person-outline';
             }
-            // return <Ionic name={iconName} size={size} color={color} />;
+          
             return <Ionic name={iconName} size={size} color={color = focused ? '#0BE060' : '#797979'} />;
           },
         })}
@@ -77,9 +78,9 @@ const App = () => {
 
 //stack 네비게이션  
   return (
-
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown:false}}>
+          {/* 로그인 true 바로 홈화면 로그인 false 면 로그인 화면 */}
           {isSignedIn ? (
               <>
                 <Stack.Screen name="Home" component={Home} />
@@ -90,8 +91,8 @@ const App = () => {
                 <Stack.Screen name="SignUp" component={SignUp} />
               </>
             )}
+
             <Stack.Screen name="Main" component={BottomTabScreens} />
-            
             <Stack.Screen name="Content" component={Content} /> 
 
             
@@ -100,12 +101,8 @@ const App = () => {
 
 
         </Stack.Navigator>
-      </NavigationContainer>  
+      </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-
-})
 
 export default App;
