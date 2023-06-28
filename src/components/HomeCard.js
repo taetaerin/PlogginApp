@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
         marginBottom: 6,
         justifyContent: 'center',
         alignItems: 'center',
-
     },
 
     itemImage: {

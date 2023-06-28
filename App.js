@@ -81,7 +81,7 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown:false}}>
           {/* 로그인 true 바로 홈화면 로그인 false 면 로그인 화면 */}
-          {isSignedIn ? (
+          {/* {isSignedIn ? (
               <>
                 <Stack.Screen name="Home" component={Home} />
               </>
@@ -90,10 +90,11 @@ const App = () => {
                 <Stack.Screen name="SignIn" component={SignIn} />
                 <Stack.Screen name="SignUp" component={SignUp} />
               </>
-            )}
+            )} */}
 
             <Stack.Screen name="Main" component={BottomTabScreens} />
             <Stack.Screen name="Content" component={Content} /> 
+            <Stack.Screen name='Post' component={Post} />
 
             
             <Stack.Screen name="EditProfile" component={EditProfile} />
