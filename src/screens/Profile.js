@@ -1,4 +1,4 @@
-import {View, Text, SafeAreaView, TouchableOpacity, TextInput, Image, StyleSheet, StatusBar, ScrollView} from 'react-native'
+import {View, Text, SafeAreaView, TouchableOpacity, TextInput, Image, StyleSheet, StatusBar, ScrollView, Platform} from 'react-native'
 import React, { useState } from 'react'
 import Ionic from 'react-native-vector-icons/Ionicons';
 import {right} from 'react-native-vector-icons/AntDesign';
@@ -6,9 +6,10 @@ import { useNavigation } from '@react-navigation/native';
 
 
 const Profile = ({navigation}) => {
-    const [text, onChangeText] = React.useState('');
-    const [number, onChangeNumber] = React.useState('');
+    const [text, onChangeText] = useState('');
+    const [number, onChangeNumber] = useState('');
     const [inputText, setinputText] = useState('');
+
     const onPressSaveEdit = () => {
     }
  
@@ -47,7 +48,7 @@ const Profile = ({navigation}) => {
             </View>
             <Text style={{
                 fontSize: 18,
-                fontFamily: 'Inter',
+                // fontFamily: 'Inter',
                 left: 18,
                 color: '#424242'}}>플로깅 기록</Text>
             <View></View>
@@ -96,15 +97,17 @@ const Profile = ({navigation}) => {
             <View style={styles.line}
             ></View>
             <TouchableOpacity
-                onPress={() => onPressSaveEdit()}>
-            <Text style={{
-                fontSize: 16,
-                left: 18,
-                color: '#424242'
-                // top: 802
-            }} onPress={() => navigation.navigate('EditProfile')}>
-                프로필 관리
-            </Text>
+                // onPress={() => onPressSaveEdit()}
+                onPress={() => navigation.push('EditProfile')} >
+                
+                <Text style={{
+                    fontSize: 16,
+                    left: 18,
+                    color: '#424242'
+                    // top: 802
+                }}>
+                    프로필 관리
+                </Text>
             </TouchableOpacity>
             <View style={{
                 marginBottom:80
@@ -144,8 +147,7 @@ const styles = StyleSheet.create({
         marginTop: 12,
         marginBottom: 47,
         borderBottomColor: '#CBCBCB',
-        borderBottomWidth: 0.8
-
+        borderBottomWidth: 0.8,
     },
     line: {
         marginHorizontal: 0,

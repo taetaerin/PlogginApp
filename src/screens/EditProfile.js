@@ -1,137 +1,138 @@
-import {View, Text, SafeAreaView, TouchableOpacity, TextInput, Image, StyleSheet, StatusBar} from 'react-native'
+import {View, Text, SafeAreaView, TouchableOpacity, TextInput, Image, StyleSheet, Platform, Pressable} from 'react-native'
 import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import Ionic from 'react-native-vector-icons/Ionicons';
+// const EditProfile = ({navigation}) => {
+//     return(
+//         <Text>dddd</Text>
+//     )
+// }
 
-const EditProfile = ({route, navigation}) => {
+// export default EditProfile;
+const EditProfile = ({navigation}) => {
     const [text, onChangeText] = React.useState('');
     const [number, onChangeNumber] = React.useState('');
     const [inputText, setinputText] = useState('');
     const onPressSaveEdit = () => {
+    };
 
-    }
- 
     return (
-        <SafeAreaView style={styles.container}>
-            
-            <StatusBar 
-            barStyle = 'dark-content'
-            hidden = {false}
-            backgroundColor= 'white'>
-            
-            <View style={styles.seperator}>
-            </View>
-            {/* <View></View> */}
-            {/* <View style={{ padding: 20, alignItems: 'center' }}>
-                <Image
-                source={profileImage}
-                style={{ width: 80, height: 80,borderRadius: 100}}/>
-            </View> */}
-            <View
-                style={{ padding: 10 }}>
-            <View style={{ paddingVertical: 20 }}>
-                <Text style={{
-                    textAlign: 'center',
-                    padding: 16,
-                    fontSize: 16,
-                    color: '#635B5B'
-                }}>닉네임</Text>
-
-                <TextInput
-                    onChangeText={(text) => setinputText(text)}
-                    defaultValue={inputText}
-                    placeholder='홍길동'
-                    editable={true}
-                    multiline={false}
-                    
+        <View style={{flex: 1, backgroundColor: 'white'}}>
+            <SafeAreaView style={styles.container}>
+                
+                {/* 상단바 */}
+                <View 
                     style={{
-                        width: 355,
-                        height: 47,
-                        left: 19,
-                        // top: 372,
-                        fontSize: 20,
-                        backgroundColor: 'white',
-                        borderColor: '#E2E2E2',
-                        borderWidth: 1
+                    width: '100%', 
+                    backgroundColor: 'white', 
+                    height: 44, 
+                    paddingHorizontal: 18,
+                    justifyContent:'center',
+                    borderBottomWidth: 0.5,
+                    borderBottomColor: '#EAEAEA',
+                }}
+                    >
+                        <TouchableOpacity>
+                            <Ionic name="chevron-back-sharp" style={{fontSize:24}} onPress={() => navigation.goBack()} />
+                        </TouchableOpacity>
+                </View>
+                
+                <View style={{flex: 1, backgroundColor: '#FBFBFB', paddingHorizontal: 18}}>
 
-                    
-                    }}></TextInput>
-                    
-                    <Text style={{
-                        
-                        fontSize: 16,
-                        textAlign: 'center',
-                        color: '#1AAD55',
-                        padding: 4
-                    }}>
-                        * 이미 존재하는 닉네임입니다.
-                    </Text>
-                    <View style={{ paddingVertical: 8 }}>
-                <Text style={{
-                    textAlign: 'center',
-                    padding: 16,
-                    fontSize: 16,
-                    color: '#635B5B'
-                }}>한줄 목표</Text>
-                <TextInput
-                    
-                    placeholder='화이팅'
-                    onChangeText={(text) => setinputText(text)}
-                    defaultValue={inputText}
-                    editable={true}
-                    multiline={false}
-                    
-                    style={{
-                        width: 355,
-                        height: 47,
-                        left: 19,
-                        fontSize: 20,
-                        backgroundColor: 'white',
-                        borderColor: '#E2E2E2',
-                        borderWidth: 1
-                   
-                    }}></TextInput>
+                    {/* 프로필 사진 */}
+                    <View style={{alignItems: 'center', justifyContent: 'center', marginVertical: 45}}>
+                        <View style={{backgroundColor: '#EFEFEF', width: 150, height: 150, borderRadius: 100}} />
                     </View>
-             <TouchableOpacity
-                onPress={() => onPressSaveEdit()}
-                style={styles.button}>
-                    <Text style={{
-                        textAlign: 'center',
-                        fontSize: 20,
-                        color: 'white',
-                        fontFamily: 'RobotoBold'
-                      
-                        
-                        
-                    }}>완료</Text>
-                </TouchableOpacity>
-            </View>
-            </View>
-            </StatusBar>
-        </SafeAreaView>
+
+                    {/* 닉네임 컨테이너 */}
+                    <View style={{marginVertical: 8}}>
+                        <Text style={styles.subTitle}>닉네임</Text>
+                    
+                        {/* 입력창 */}
+                        <TextInput
+                            onChangeText={(text) => setinputText(text)}
+                            defaultValue={inputText}
+                            placeholder='홍길동'
+                            editable={true}
+                            multiline={false}
+                            style={styles.inputText} />
+
+                        {/* 닉네임이 중복되었을 경우 뜨는 창 */}
+                        <Text style={{
+                            fontSize: 16,
+                            textAlign: 'center',
+                            color: '#1AAD55',
+                            marginTop: 7,
+                        }}>
+                        * 이미 존재하는 닉네임입니다.
+                        </Text>
+                    </View>
+
+                    {/* 한줄 목표 컨테이너 */}
+                    <View>
+                        <Text style={styles.subTitle}>한줄 목표</Text>
+                        <TextInput
+                            
+                            placeholder='화이팅'
+                            onChangeText={(text) => setinputText(text)}
+                            defaultValue={inputText}
+                            editable={true}
+                            multiline={false}
+                            style={styles.inputText} />
+                    </View>
+
+                </View>
+            </SafeAreaView>
+            <Pressable style={styles.button} onPress={() => console.log('click')}>
+                <Text style={{color: 'white', fontSize: 20, fontWeight: 600, marginBottom: 10}}>완료</Text>
+            </Pressable>
+        </View>
     )
 };
+
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Platform.OS === 'android' ? 20 : 0,
+        backgroundColor: 'white',
+    },
+    EdProfileContainer: {
+        backgroundColor: 'red',
+        justifyContent: 'center',
+        flexDirection: 'row',
+    },
+    subTitle: {
+        textAlign: 'center',
+        padding: 16,
+        fontSize: 16,
+        color: '#635B5B'
+    },
+    inputText: {
+        width: '100%',
+        height: 47,
+        textAlign: 'center',
+        fontSize: 20,
+        backgroundColor: 'white',
+        borderColor: '#E2E2E2',
+        borderRadius: 4,
+        borderWidth: 1,
     },
     button: {
-        backgroundColor: '#0BE060',
-        paddingHorizontal: 0,
-        width: 390,
-        height: 72,
-        marginTop: 220,
-        justifyContent: "center",
-        alignItems: "center",
-        
-        },
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 0,
+        height: 60,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor:'#0BE060',
+      },
     seperator: {
         marginHorizontal: 0,
         marginTop: 46,
         marginBottom: 47,
         borderBottomColor: '#CBCBCB',
-        borderBottomWidth: 0.8
-
+        borderBottomWidth: 0.8,
     }
 
     }
