@@ -14,6 +14,7 @@ import SignUp from './src/screens/SignUp';
 import SignIn from './src/screens/SignIn.js';
 import SplashScreen from 'react-native-splash-screen';
 import Content from './src/screens/Content';
+import {PermissionsAndroid} from 'react-native';
 
 const getIsSignedIn = () => {
   // custom logic

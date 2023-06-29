@@ -1,6 +1,7 @@
-import {View, Text, SafeAreaView, TouchableOpacity, TextInput, Image, StyleSheet, Platform, Pressable} from 'react-native'
-import React, { useState } from 'react';
+import {View, Text, SafeAreaView, TouchableOpacity, TextInput, Image, StyleSheet, Platform, Button, Pressable, Alert,PermissionsAndroid} from 'react-native'
+import React, { useEffect, useState } from 'react';
 import Ionic from 'react-native-vector-icons/Ionicons';
+import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 // const EditProfile = ({navigation}) => {
 //     return(
 //         <Text>dddd</Text>
@@ -14,11 +15,25 @@ const EditProfile = ({navigation}) => {
     const [inputText, setinputText] = useState('');
     const onPressSaveEdit = () => {
     };
+    const[selectImage, setSelectImage] = useState('')
+const ImagePicker = ()=>{
+
+let options = {
+    storageOptions:{
+        path:"image"
+    },
+};
+    launchImageLibrary(options,response=>{
+        setSelectImage(response.assets[0].uri)
+        console.log(response.assets[0].uri)
+    });
+};
+
 
     return (
         <View style={{flex: 1, backgroundColor: 'white'}}>
-            <SafeAreaView style={styles.container}>
-                
+                <SafeAreaView style={styles.container}>
+
                 {/* 상단바 */}
                 <View 
                     style={{
@@ -38,11 +53,20 @@ const EditProfile = ({navigation}) => {
                 
                 <View style={{flex: 1, backgroundColor: '#FBFBFB', paddingHorizontal: 18}}>
 
-                    {/* 프로필 사진 */}
-                    <View style={{alignItems: 'center', justifyContent: 'center', marginVertical: 45}}>
-                        <View style={{backgroundColor: '#EFEFEF', width: 150, height: 150, borderRadius: 100}} />
-                    </View>
+                    
 
+                    {/* 프로필 사진 */}
+                    <TouchableOpacity onPress={()=>{
+                        ImagePicker()
+                    }}>
+                    <View style={{alignItems: 'center', justifyContent: 'center', marginTop: 45}}>
+                        <Image style={{backgroundColor: '#EFEFEF', alignItems: 'center', justifyContent: 'center',
+                        width: 150, height: 150, borderRadius: 100}} source={{uri: selectImage}}/>
+                        </View>
+                        <Ionic name="image" size={30} color='#424242'
+                        style={{top:-45, left:228}}/>
+                    </TouchableOpacity>
+                                                          
                     {/* 닉네임 컨테이너 */}
                     <View style={{marginVertical: 8}}>
                         <Text style={styles.subTitle}>닉네임</Text>
@@ -90,11 +114,12 @@ const EditProfile = ({navigation}) => {
 };
 
 
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Platform.OS === 'android' ? 20 : 0,
-        backgroundColor: 'white',
+        backgroundColor: '#F5F5F5',
     },
     EdProfileContainer: {
         backgroundColor: 'red',
