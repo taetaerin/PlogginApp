@@ -16,7 +16,7 @@ const Profile = ({navigation}) => {
     return (
         <SafeAreaView style={styles.container}>
             
-            <ScrollView>
+            <ScrollView> 
             {/* <StatusBar 
             barStyle = 'dark-content'
             hidden = {false}
