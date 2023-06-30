@@ -15,97 +15,71 @@ const Profile = ({navigation}) => {
  
     return (
         <SafeAreaView style={styles.container}>
+            
             <ScrollView>
             {/* <StatusBar 
             barStyle = 'dark-content'
             hidden = {false}
             backgroundColor= 'white'> */}
-            <Text style={{
-                fontSize: 18,
-                fontFamily: 'Inter',
-                left: 18,
-                color: '#424242'
-                                
-            }}>프로필</Text>
+            <Text style={styles.subTitle}>
+                프로필
+            </Text>
             <View style={styles.seperator}>
             </View>
-             {/* <View></View> */}
-            {/* <View style={{ padding: 20, alignItems: 'center' }}>
-                <Image
-                source={profileImage}
-                style={{ width: 80, height: 80,borderRadius: 100}}/>
-            </View> */}
-            <Text style={{
-                fontSize: 20,
-                fontFamily: 'Inter',
-                left: 138,
-                color: '#424242'
-            }}>홍길동 님</Text>
+
+            <View style={{ marginTop: 10, flexDirection: 'row'}}>
+                        <Image style={{backgroundColor: '#EFEFEF',
+                        left: 16, width: 100, height: 100, borderRadius: 100}}></Image>
+                        
+            <Text style={styles.nameText}>
+                홍길동 님
+            </Text>
+            </View>
             <View style={{
-                paddingBottom: 58
+                paddingBottom: 30
             }}></View>
             <View style={styles.seperator}>
             </View>
-            <Text style={{
-                fontSize: 18,
-                // fontFamily: 'Inter',
-                left: 18,
-                color: '#424242'}}>플로깅 기록</Text>
-            <View></View>
+            <Text style={styles.subTitle}>
+                플로깅 기록
+            </Text>
+            <View>
+
+            </View>
             <View style={{
                 marginBottom: 380
             }}></View>
              <TouchableOpacity
                 onPress={() => onPressSaveEdit()}>
-            <Text style={{
-                fontSize: 16,
-                left: 18,
-                color: '#424242'
-                // top: 802
-            }}>
+            <Text style={styles.text}>
                 내가 작성한 게시물
             </Text>
-            {/* <Ionic name= 'right' color='#CBCBCB' size={20}/> */}
+            {/* <Ionic name= "chevron-small-right" size={20} color="#CBCBCB" /> */}
             </TouchableOpacity>
-            <View style={styles.line}
-            ></View>
+            <View style={styles.line}>
+            </View>
             <TouchableOpacity
                 onPress={() => onPressSaveEdit()}>
-            <Text style={{
-                fontSize: 16,
-                left: 18,
-                color: '#424242'
-                // top: 802
-            }}>
-                내가 작성한 모집글
+            <Text style={styles.text}>
+            내가 작성한 모집글
             </Text>
-            {/* <Ionic name= {right} color='#CBCBCB' size={20}/> */}
+            {/* <Ionic name= "right" color='#CBCBCB' size={20}/> */}
             </TouchableOpacity>
-            <View style={styles.line}
-            ></View>
+            <View style={styles.line}>
+            </View>
             <TouchableOpacity
                 onPress={() => onPressSaveEdit()}>
-            <Text style={{
-                fontSize: 16,
-                left: 18,
-                color: '#424242'
-                // top: 802
-            }}>
+            <Text style={styles.text}>
                 내가 참여한 모집글
             </Text>
             </TouchableOpacity>
-            <View style={styles.line}
-            ></View>
+            <View style={styles.line}>
+            </View>
             <TouchableOpacity
                 // onPress={() => onPressSaveEdit()}
                 onPress={() => navigation.push('EditProfile')} >
                 
-                <Text style={{
-                    fontSize: 16,
-                    left: 18,
-                    color: '#424242'
-                    // top: 802
-                }}>
+                <Text style={styles.text}>
                     프로필 관리
                 </Text>
             </TouchableOpacity>
@@ -130,8 +104,6 @@ const Profile = ({navigation}) => {
                     resizeMode:'contain'                 
                 }}source={require('../../assets/images/Logo.png')}/>
             </View>
-         
-            {/* </StatusBar> */}
           </ScrollView>
           
         </SafeAreaView>
@@ -141,11 +113,12 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: Platform.OS === 'android' ? 20 : 0,
+        backgroundColor: '#F5F5F5'
     },
     seperator: {
         marginHorizontal: 0,
         marginTop: 12,
-        marginBottom: 47,
+        marginBottom: 30,
         borderBottomColor: '#CBCBCB',
         borderBottomWidth: 0.8,
     },
@@ -157,6 +130,24 @@ const styles = StyleSheet.create({
         borderBottomWidth: 0.8
         
     },
+    nameText: {
+        fontSize: 20,
+        fontFamily: 'Inter',
+        left: 45,
+        top:15,
+        color: '#424242',
+       
+    },
+    subTitle: {
+        fontSize: 18,
+        left: 18,
+        color: '#424242'
+    },
+    text: {
+        fontSize: 16,
+        left: 18,
+        color: '#424242'
+    }
     
 }
 )
