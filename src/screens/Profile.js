@@ -3,15 +3,27 @@ import React, { useState } from 'react'
 import Ionic from 'react-native-vector-icons/Ionicons';
 import {right} from 'react-native-vector-icons/AntDesign';
 import { useNavigation } from '@react-navigation/native';
-
+import { Calendar } from 'react-native-calendars';
 
 const Profile = ({navigation}) => {
     const [text, onChangeText] = useState('');
     const [number, onChangeNumber] = useState('');
     const [inputText, setinputText] = useState('');
-
+    
     const onPressSaveEdit = () => {
     }
+    const[selectImage, setSelectImage] = useState('');
+    const markDates = {
+        '2023-07-01': {
+            selected: true,
+        },
+        '2023-07-02': {
+            selected: true,
+        },
+        '2023-07-03': {
+            selected: true,
+        }
+    };
  
     return (
         <SafeAreaView style={styles.container}>
@@ -29,7 +41,7 @@ const Profile = ({navigation}) => {
 
             <View style={{ marginTop: 10, flexDirection: 'row'}}>
                         <Image style={{backgroundColor: '#EFEFEF',
-                        left: 16, width: 100, height: 100, borderRadius: 100}}></Image>
+                        left: 16, width: 100, height: 100, borderRadius: 100}}source={{uri: selectImage}}></Image>
                         
             <Text style={styles.nameText}>
                 홍길동 님
@@ -44,10 +56,24 @@ const Profile = ({navigation}) => {
                 플로깅 기록
             </Text>
             <View>
-
+                <Calendar
+                 style={styles.calendar}
+                 markedDates={markDates}
+                 theme={{
+                    selectedDayBackgroundColor: '#0BE060',
+                    arrowColor: '#0BE060',
+                    dotColor: '#0BE060',
+                    todayTextColor: '#0BE060',
+                 }}
+                ></Calendar>
+            </View>
+            <View style={{marginTop: 26, width:375, height: 75, backgroundColor: '#E4EAF1', left: 18, borderRadius: 5}}>
+                 <Text style={styles.text}>거리:</Text>
+                 <Text style={styles.text}>시간:</Text>
+                 <Text style={styles.text}>칼로리:</Text>
             </View>
             <View style={{
-                marginBottom: 380
+                marginBottom: 110
             }}></View>
              <TouchableOpacity
                 onPress={() => onPressSaveEdit()}>
@@ -147,6 +173,15 @@ const styles = StyleSheet.create({
         fontSize: 16,
         left: 18,
         color: '#424242'
+    },
+    calendar: {
+        borderBottomWidth: 1,
+        borderBottomColor: '#e0e0e0',
+        borderRadius: 5,
+        marginTop: 33,
+        width: 375,
+        padding: 10, 
+        left:18,   
     }
     
 }
