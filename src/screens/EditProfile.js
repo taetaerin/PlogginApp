@@ -96,6 +96,7 @@ const EditProfile = ({navigation}) => {
                                     }}>
                                     * 이미 존재하는 닉네임입니다.
                                     </Text>
+                                    <Text>ddd</Text>
                                 </View>
 
                                 {/* 한줄 목표 컨테이너 */}
